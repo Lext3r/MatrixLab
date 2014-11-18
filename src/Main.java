@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 public class Main {
 
+    private int[][] matrix;
 
     public static void main(String[] args) throws IOException {
         Matrix matrix = new Matrix();
         int dimmension = readMatrixDimmension();
         int[][]inputMatrix = matrix.readMatrix(dimmension);
+        int checkValue = matrix.primaryDiagonalSum(inputMatrix);
+        System.out.println(matrix.isMagic(inputMatrix,checkValue));
     }
 
     public static int readMatrixDimmension() throws FileNotFoundException {
