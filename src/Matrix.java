@@ -122,14 +122,62 @@ public class Matrix {
         return sum;
     }
 
-    String isMagic(int[][] matrix, int checkValue){
-        if ((isColumnElementsSumEqual(matrix,checkValue) == true) &&
-                (isRowElementsSumEqual(matrix, checkValue) == true) &&
+    String isMagicSquare(int[][] matrix, int checkValue){
+        if ((isColumnElementsSumEqual(matrix,checkValue)) &&
+                (isRowElementsSumEqual(matrix, checkValue)) &&
                 (checkValue==secondaryDiagonalSum(matrix))) {
             return("OK!");
         } else {
             return ("No");
         }
+    }
+
+    String isLatinSquare(int[][] matrix){
+        if ((isColumnElementMultiplicationEqual(matrix)) && (isRowElementMultiplicationEqual(matrix))) {
+            return("OK!");
+        } else {
+            return ("No");
+        }
+    }
+
+    boolean isColumnElementMultiplicationEqual(int [][] matrix){
+        int col = 0;
+        int sum = 1;
+        int checkValue=0;
+        for (int row = 0; row < matrix.length; row++) {
+            sum *= matrix[row][col];
+            checkValue = sum;
+        }
+        for (col = 1; col < matrix.length; col++) {
+            sum = 1;
+            for (int row = 0; row < matrix.length; row++) {
+                sum *= matrix[row][col];
+            }
+            if(sum != checkValue){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    boolean isRowElementMultiplicationEqual(int [][] matrix){
+        int row = 0;
+        int sum = 1;
+        int checkValue=0;
+        for (int col = 0; col < matrix.length; col++) {
+            sum *= matrix[row][col];
+            checkValue = sum;
+        }
+        for (row = 1; row < matrix.length; row++) {
+            sum = 1;
+            for (int col = 0; col < matrix.length; col++) {
+                sum *= matrix[row][col];
+            }
+            if(sum != checkValue){
+                return false;
+            }
+        }
+        return true;
     }
 
 }

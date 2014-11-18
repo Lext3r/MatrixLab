@@ -12,7 +12,8 @@ public class Main {
         int dimmension = readMatrixDimmension();
         int[][]inputMatrix = matrix.readMatrix(dimmension);
         int checkValue = matrix.primaryDiagonalSum(inputMatrix);
-        System.out.println(matrix.isMagic(inputMatrix,checkValue));
+        System.out.println(matrix.isMagicSquare(inputMatrix, checkValue));
+        System.out.println(matrix.isLatinSquare(inputMatrix));
     }
 
     public static int readMatrixDimmension() throws FileNotFoundException {
