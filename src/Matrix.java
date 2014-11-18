@@ -31,7 +31,7 @@ public class Matrix {
         out.close();
     }
 
-    public int[][] rotate(int[][] matrix, int dimmension){
+    public int[][] rotate90(int[][] matrix, int dimmension){
         int tmp;
         for(int i = 0; i < dimmension / 2; i++)
         {
@@ -40,6 +40,22 @@ public class Matrix {
                 tmp = matrix[i][j];
                 matrix[i][j]=matrix[j][dimmension - 1 - i];
                 matrix[j][dimmension - 1 - i] = matrix[dimmension - 1 -i][dimmension - 1 - j];
+                matrix[dimmension - 1 - i][dimmension - 1 - j] = matrix[dimmension - 1 - j][i];
+                matrix[dimmension - 1 - j][i] = tmp;
+            }
+        }
+        return matrix;
+    }
+
+    public int[][] rotate270(int[][] matrix, int dimmension){
+        int tmp;
+        for(int i = 0; i < dimmension / 2; i++)
+        {
+            for(int j = i; j < dimmension - 1 - i; j++)
+            {
+                tmp = matrix[i][j];
+                matrix[i][j]=matrix[j][dimmension - 1 - i];
+                matrix[j][dimmension - 1 - i] = matrix[dimmension - 1 - i][dimmension - 1 - j];
                 matrix[dimmension - 1 - i][dimmension - 1 - j] = matrix[dimmension - 1 - j][i];
                 matrix[dimmension - 1 - j][i] = tmp;
             }

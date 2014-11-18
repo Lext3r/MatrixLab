@@ -5,8 +5,7 @@ public class Main {
         Matrix matrix = new Matrix();
         int dimmension = matrix.readMatrixDimmension();
         int [][] inputMatrix = matrix.readMatrix(dimmension);
-        int [][]matrix90 = matrix.rotate(inputMatrix,dimmension);
+        int [][]matrix90 = matrix.rotate90(inputMatrix,dimmension);
         matrix.printMatrix(matrix90);
-
     }
 }
